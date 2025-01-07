@@ -1,8 +1,10 @@
-/*-------------- GOOGLE FONTS ---------------*/
+/*---------------------- D O N E ----------------------*/
+
+/*google fonts*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-/*-------------- VARIABLE CSS ---------------*/
+/*variable css*/
 
 :root {
     /*---- Colors ----*/
@@ -49,7 +51,7 @@
     --z-modal: 100;
 }
 
-/*-------------- RESPONSIVE TYPOGRAPHY ---------------*/
+/*responsive designs*/
 
 @media screen and (max-width: 1024px) {
     :root {
@@ -62,6 +64,154 @@
         --smaller-font-size: 0.75rem;
     }
 }
+
+/*main*/
+.main {
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+/*base*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    /*background-image: radial-gradient(circle, var(--scroll-thumb-color), var(--body-color) 110%);*/
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1 {
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+
+h2,
+h3 {
+    color: var(--name-color);
+    font-weight: var(--font-bold);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    height: 20rem;
+    border-radius: 50%;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+}
+
+/*navigation bar*/
+.nav {
+    padding-top: 2rem;
+}
+
+.topnav {
+    padding-left: 30px;
+    padding-right: 90px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.topnav a {
+    float: right;
+    display: block;
+    color: var(--title-color);
+    text-align: center;
+    padding: 0.3rem .7rem;
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    transition: 0.4s;
+    padding-inline: 15px;
+}
+
+.topnav a:hover {
+    color: var(--body-color);
+    background-color: var(--title-color);
+    transition: 0.4s;
+}
+
+.topnav a.active {
+    color: var(--body-color);
+    background-color: var(--title-color);
+}
+
+.topnav .icon {
+    display: none;
+}
+
+
+
+/*buttons*/
+.button {
+    display: inline-flex;
+    border: 2px solid var(--title-color);
+    background-color: var(--body-color);
+    color: var(--title-color);
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.2rem;
+    font-weight: var(--font-medium);
+    column-gap: 0.3rem;
+    z-index: 1;
+}
+
+/*
+.button::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform-origin: center;
+  transform: scale(0);
+  border-radius: 0.25rem;
+  transition: 0.3s;
+}*/
+.button:hover i {
+    transform: translateX(0.35rem);
+    transition: 0.3s;
+}
+
+.button__icon {
+    font-size: 1.25rem;
+}
+
+/*---------------------- D O N E ----------------------*/
+
+
+
+
+
+
 
 /*-------------- BASE ---------------*/
 
@@ -85,17 +235,6 @@ input {
 body {
     background-color: var(--body-color);
     color: var(--text-color);
-}
-
-h1,
-h2 {
-    color: var(--name-color);
-    font-weight: var(--font-bold);
-}
-
-h3 {
-    color: var(--title-color);
-    font-weight: var(--font-bold);
 }
 
 ul {
@@ -133,9 +272,6 @@ input {
 
 /*-------------- REUSABLE CSS CLASSES ---------------*/
 
-.section {
-    padding: 0.2rem 0.2rem;
-}
 
 .section__title {
     text-align: center;
@@ -143,44 +279,53 @@ input {
     padding-top: 5%;
 }
 
+/*
 .section__title::before {
     display: block;
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     color: var(--skin-color);
-}
+}*/
 
 
 /*...... About Section ........ */
 
-.about__container {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 4rem;
-    align-items: center;
-    padding-top: 5%;
+.about {
+    background-size: cover;
+    background-position: left;
+    height: 100vh;
     padding-left: 10%;
+    padding-top: 5%;
 }
+
+.row {
+    display: flex;
+}
+
+.column {
+    float: left;
+    width: 70%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    flex: 20%;
+}
+
 
 .about__img {
+    height: 245px;
     width: 480px;
     border-radius: 0.75rem;
-    justify-self: center;
-}
-
-.about__heading {
-    font-size: var(--h2-font-size);
-    padding-top: 5%;
-}
-
-.about__description {
-    text-align: justify;
-    padding-right: 6rem;
-    padding-bottom: 1rem;
+    justify-self: top;
+    align-self: center;
 }
 
 .about__info {
-    grid-template-columns: repeat(3, 140px);
-    column-gap: 5rem;
+    grid-template-columns: repeat(3, 20%);
+    column-gap: 7rem;
 }
 
 .about__box {
@@ -196,9 +341,29 @@ input {
 }
 
 .about__title {
-    font-size: var(--small-font-size);
+    font-size: var(--h2-font-size);
 }
 
 .about__subtitle {
     font-size: var(--smaller-font-size);
+}
+
+.h1 {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+}
+
+.h2 {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    padding-bottom: 0.5rem;
+}
+
+.h3,
+.about__description {
+    max-width: 450px;
+}
+
+.about__description {
+    padding-bottom: 2rem;
 }

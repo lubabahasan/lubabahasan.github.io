@@ -15,46 +15,103 @@
     <!-------------- MAIN CSS --------------->
     <link rel="stylesheet" href="assets/css/about.css">
 
-    <title>Fruit Basket - lubabahasan</title>
+    <title>About Fruit - lubabahasan</title>
 </head>
 
 <body>
-    <main>
-        <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
 
-            <div class="about__container container grid">
+    <!-------------- NAVIGATION BAR --------------->
+
+    <nav class="nav">
+        <!--<div class="nav__logo">
+            <a href="index.html" class="nav__logo-text">M</a>
+        </div>-->
+        <div class="topnav" id="myTopnav">
+            <a href="about.html" class="active"> About </a>
+            |
+            <a href="test.html"> Home </a>
+            |
+            <a href="#skills">Skills</a>
+            |
+            <a href="#experience">Experience</a>
+            |
+            <a href="#projects">Projects</a>
+            |
+            <a href="#contact">Contact</a>
+            |
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-------------- MAIN --------------->
+    <main>
+
+        <!-------------- ABOUT ME --------------->
+
+        <section class="about" id="about">
+
+            <div class="row">
 
                 <!--<img src="assets/img/about-img.jpg" alt="" class="about__img">-->
 
-                <div class="about__data">
-                    <h2 class="about__heading">Hi, I am Lubaba Hasan.</h2>
-                    <p class="about__description">Studying Computer Science and Engineering at the University of Asia
-                        Pacific
-                        (UAP). Passionate about technology, coding, and innovation.</p>
-                    <div class="about__info grid">
+                <div class="column">
 
-                        <div class="about__box">
-                            <i class="uil uil-award about__icon"></i>
-                            <h3 class="about__title">Experience</h3>
-                            <span class="about__subtitle">No Experience</span>
-                        </div>
+                    <h3 class="h3">About Me</h3>
+                    <h1 class="h1">I am Lubaba Hasan.</h1>
+                    <p class="about__description">Passionate about technology, coding, and innovation. lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit, sed do eiusmod tempor blah blah Passionate about
+                        technology, coding, and innovation. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                        do eiusmod tempor
+                    </p>
 
-                        <div class="about__box">
-                            <i class="uil uil-suitcase-alt about__icon"></i>
-                            <h3 class="about__title">Project Completed</h3>
-                            <span class="about__subtitle">None</span>
-                        </div>
-
-                        <div class="about__box">
-                            <i class="uil uil-headphones-alt about__icon"></i>
-                            <h3 class="about__title">Support</h3>
-                            <span class="about__subtitle"></span>
-                        </div>
-
-                    </div>
+                </div>
+                <div class="column about__img">
+                    <img src="assets/img/lubaba.png" alt="">
                 </div>
             </div>
+
+            <div class="row">
+
+                <div class="about__info grid">
+
+                    <div class="education">
+                        <h3 class="skill__title"><i class="uil uil-graduation-cap"></i> Education </h3>
+
+                        <div class="timeline">
+
+                            <div class="timeline__item">
+                                <div class="circle__dot"></div>
+                                <h3 class="timeline__title">University of Asia Pacific</h3>
+                                <p class="timeline__text">BSc. Computer Science and Engineering</p>
+                                <span class="timeline__date"><i class="uil uil-calendar-alt"></i>2023-2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about__box">
+                        <i class="uil uil-award about__icon"></i>
+                        <h3 class="about__title">Experience</h3>
+                        <span class="about__subtitle">No Experience</span>
+                    </div>
+
+                    <div class="about__box">
+                        <i class="uil uil-suitcase-alt about__icon"></i>
+                        <h3 class="about__title">Project Completed</h3>
+                        <span class="about__subtitle">None</span>
+                    </div>
+
+                    <div class="about__box">
+                        <i class="uil uil-headphones-alt about__icon"></i>
+                        <h3 class="about__title">Support</h3>
+                        <span class="about__subtitle"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
     </main>
 </body>
