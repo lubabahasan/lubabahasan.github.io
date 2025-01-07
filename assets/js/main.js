@@ -45,3 +45,23 @@ function navHighlighter() {
     }
   });
 }
+
+/*-------------- HAMBURGER NAVIGATION BAR ---------------*/
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+/*-------------- GLOWY CURSOR ---------------*/
+document.addEventListener("mousemove", (event) => {
+  let mousex = event.clientX - 15;
+  let mousey = event.clientY - 15;
+  let elem = document.querySelector('.cursor-glow');
+  elem.style.left = mousex + 'px';
+  elem.style.top = mousey + 'px';
+});
