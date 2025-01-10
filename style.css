@@ -39,6 +39,14 @@ svg {
   max-width: 30.5vw;
 }
 
+#svg-contents {
+  transition: transform 0.5s ease-in-out; /* Adjust duration and timing as needed */
+}
+
+#svg-contents.translated {
+  transform: translateY(0px); /* Translated position */
+}
+
 /* =====================
   General Styles
 ===================== */
