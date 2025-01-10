@@ -726,7 +726,7 @@ footer.row {
 
   .navbar-toggle .glyphicon {
     color: var(--text-color);
-    top: -2px;
+    top: -5px;
   }
 
   .navbar-default .navbar-toggle:focus,
@@ -763,3 +763,28 @@ footer.row {
     text-align: center;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================
+  Bootstrap 
+===================== */
