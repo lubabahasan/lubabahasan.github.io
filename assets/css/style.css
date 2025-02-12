@@ -36,7 +36,7 @@
 
 svg {
   padding-top: 1rem;
-  max-width: 30.5vw;
+  max-width: 36vw;
 }
 
 #svg-contents {
@@ -64,6 +64,10 @@ body {
   font-family: var(--body-font);
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.row{
+  margin-top: 2rem;
 }
 
 h1 {
@@ -223,7 +227,7 @@ hr {
   Jumbotron Styles
 ===================== */
 .jumbotron {
-  background: linear-gradient( to bottom , var(--body-color), var(--body-color), var(--skin-color), var(--body-color));
+  background: linear-gradient( to bottom , var(--body-color), var(--skin-color), var(--skin-color), var(--body-color));
   background-size: cover;
   height: 100%;
   margin: 0;
@@ -262,13 +266,13 @@ hr {
   font-weight: var(--font-medium)
 }
 
-
 /* =====================
   Socials Styles
 ===================== */
 
 .home__social {
   top: 1rem;
+  left: -15px;
 }
 
 .home__social-link {
@@ -278,34 +282,124 @@ hr {
   padding-right: 0.5rem;
 }
 
-.home__social-link:hover {
+.home__social-link:hover,
+.home__social-link:focus {
   background-color: transparent;
   color: var(--text-color);
   transform: translateY(0.25rem);
+  text-decoration: none;
 }
 
-/* Social Icons
-.social {
-  display: inline-block;
-  transition: box-shadow 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-  height: 36px;
-  margin-left: 3px;
-  width: 36px;
+/* =====================
+  Experience Styles
+===================== */
+
+#experience {
+  background: var(--title-color);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  min-height: 510px;
+  position: relative;
 }
 
-.social:focus,
-.social:hover {
-  background-color: transparent;
+#experience .row{
+  margin-top: 1rem;
 }
 
-.social+.social {
-  margin-left: 9px;
+#experience h1 {
+  color: var(--body-color);
+  font-size: 3.2rem;
+  font-weight: var(--font-bold);
 }
 
-.social img {
-  max-width: 100%;
-}*/
+#experience h2 {
+  color: var(--box-color);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-bold);
+}
+
+.timeline {
+  position: relative;
+  color: var(--text-color);
+
+  /* Timeline Line */
+  &:before {
+      content: '';
+      position: absolute;
+      left: 5%;
+      top: 3rem ;
+      width: 4px;
+      height: 70%;
+      background: var(--box-color);
+  }
+
+  
+  .timeline-container {
+      position: relative;
+      margin-bottom: 2.5rem;;
+
+      .timeline-icon {
+          position: absolute;
+          top: 0.7rem;
+          left: -0.5rem;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          text-align: center;
+          font-size: 1.3rem;
+
+          i {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+          }
+      }
+
+      .timeline-body {
+          background: var(--skin-color);
+          opacity: 0.9;
+          border-radius: 15px;
+          margin-left: 10%;
+          padding: 20px 30px ;
+          box-shadow: 5px 7px 6px rgba(8, 33, 30, 0.4);
+
+          .timeline-title {
+              font-size: var(--h3-font-size);
+              font-weight: var(--font-bold);
+              color: white;
+          }
+
+          .timeline-subtitle {
+            font-weight: var(--font-medium);
+            font-size: var(--small-font-size);
+          }
+
+          .timeline-year {
+            font-style: italic;
+            opacity: .6;
+            font-weight: var(--font-medium);
+            font-size: var(--smaller-font-size);
+        }
+
+          .timeline-p{
+            margin-top: 3%;
+            font-size: var(--smaller-font-size);
+          }
+        
+      }
+
+      /* Primary Timeline */
+      &.primary {
+          .badge,
+          .timeline-icon {
+              background: var(--skin-color) !important;
+          }
+      }
+
+  }
+}
 
 /* =====================
   Containers
@@ -315,9 +409,16 @@ footer.row {
   padding: 30px 30px 60px;
 }
 
-/*** Modal ***/
+/* =====================
+  Modal
+===================== */
+.modal-title {
+  color: var(--title-color);
+  font-size: 2.5rem;
+}
+
 .modal-dialog.wide {
-  width: 90%;
+  width: 80%;
 }
 
 .modal-dialog.wide .row {
@@ -335,7 +436,7 @@ footer.row {
 }
 
 .modal-header .close {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .modal-content {
@@ -378,6 +479,11 @@ footer.row {
   opacity: 0.9;
 }
 
+textarea
+{
+   resize: none;
+}
+
 /* =====================
   Buttons
 ===================== */
@@ -403,6 +509,21 @@ footer.row {
   transition: 0.3s;
 }
 
+.modal-button {
+  background-color: var(--title-color);
+  color: var(--body-color);
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.2rem;
+  font-weight: var(--font-medium);
+  font-size: medium;
+}
+
+.modal-button:hover {
+  background-color: var(--skin-color);
+  color: var(--title-color);
+  border: 2px solid var(--title-color);
+}
+
 .td-btn+.td-btn {
   margin-left: 6px;
 }
@@ -418,73 +539,6 @@ footer.row {
   border: 1px solid var(--skin-color);
   color: var(--box-color);
 }
-
-.outline:focus,
-.outline:hover {
-  background-color: #9da6a4;
-  ;
-  color: #fffefd;
-}
-
-.outline.green {
-  border-color: #29a598;
-  color: #29a598;
-}
-
-.outline.green:focus,
-.outline.green:hover {
-  background-color: #29a598;
-  color: #fffefd;
-}
-
-.outline.white {
-  border-color: #fffefd;
-  color: #fffefd;
-}
-
-.outline.white:focus,
-.outline.white:hover {
-  background-color: #fffefd;
-  color: #df3778;
-}
-
-
-
-/* Navbar Contact Button */
-.navbar-nav .outline.pink {
-  border-color: #df3778;
-  color: #df3778;
-  margin: 20px 15px 0;
-  padding-top: 0;
-}
-
-.navbar-nav .outline.pink:focus,
-.navbar-nav .outline.pink:hover {
-  background-color: #df3778;
-  color: #fffefd;
-  text-decoration: none;
-}
-
-.menu-fixed .outline.pink {
-  margin-top: 11px;
-}
-
-
-
-/* Codepen and Github SVG Buttons */
-.iconBtn>img {
-  margin-right: 6px;
-  margin-top: -3px;
-  width: 18px;
-}
-
-.iconBtn:focus>img,
-.iconBtn:hover>img {
-  -webkit-filter: brightness(10);
-  filter: brightness(10);
-}
-
-
 
 /* =====================
   Icons and Images
@@ -668,11 +722,6 @@ footer.row {
 
 .dashed {
   border-top: 2px dashed #ffce3f;
-}
-
-/*** Contact Form ***/
-.checkbox {
-  display: none;
 }
 
 /* =====================
