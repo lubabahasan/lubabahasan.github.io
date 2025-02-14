@@ -29,6 +29,45 @@
   --font-bold: 600;
 }
 
+/* =====================
+  Responsive Media
+===================== */
+
+@media (max-width: 767px) {
+  .skillset .row.g-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .skillset .col-6 {
+    width: 33.33%; 
+    margin: 10px 0;
+  }
+
+  .skillset .row img {
+    max-width: 100%; 
+    height: 40px; 
+    margin-bottom: 5px; 
+  }
+
+  .skillset .row p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .skillset {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+  }
+
+  .timeline {
+    overflow-y: auto;
+  }
+}
+
 
 /* =====================
   SVG Styles
@@ -190,7 +229,6 @@ hr {
 }
 
 .navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
@@ -275,20 +313,22 @@ hr {
   left: -15px;
 }
 
-.home__social-link {
+.home__social-link,
+.home__social-link:focus {
   display: inline-flex;
   font-size: 1.7rem;
   color: var(--text-color);
   padding-right: 0.5rem;
+  text-decoration: none;
 }
 
-.home__social-link:hover,
-.home__social-link:focus {
+.home__social-link:hover{
   background-color: transparent;
   color: var(--text-color);
   transform: translateY(0.25rem);
   text-decoration: none;
 }
+
 
 /* =====================
   Experience Styles
@@ -297,109 +337,127 @@ hr {
 #experience {
   background: var(--title-color);
   background-size: cover;
-  height: 100%;
+  min-height: 100vh; /* Ensure it fills the screen */
   width: 100%;
-  min-height: 510px;
-  position: relative;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: clamp(var(--smaller-font-size), 3vw, var(--normal-font-size));
 }
 
-#experience .row{
-  margin-top: 1rem;
+#experience .container {
+  width: 100%;
+  max-width: 1200px; /* Keeps it responsive */
+  padding: 0 1.5rem;
+}
+
+#experience .row {
+  align-items: center;
+  margin-top: 0.5rem;
 }
 
 #experience h1 {
   color: var(--body-color);
-  font-size: 3.2rem;
+  font-size: clamp(2.5rem, 5vw, 3rem);
   font-weight: var(--font-bold);
 }
 
 #experience h2 {
   color: var(--box-color);
-  font-size: var(--h2-font-size);
+  font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: var(--font-bold);
 }
+
+#experience h3 {
+  color: var(--skin-color)
+}
+
+.no-padding,
+.no-padding i,
+.no-padding p {
+  margin: 0 !important;
+  padding-top: 2px;
+}
+
+.skillset {
+  padding-bottom: 2rem;
+}
+
+.skillset p{
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  margin: 0 !important;
+}
+
+.skillset img{
+  max-width: 55px;
+}
+
+/* =====================
+  Timeline Styles
+===================== */
 
 .timeline {
   position: relative;
   color: var(--text-color);
-
-  /* Timeline Line */
-  &:before {
-      content: '';
-      position: absolute;
-      left: 5%;
-      top: 3rem ;
-      width: 4px;
-      height: 70%;
-      background: var(--box-color);
-  }
-
-  
-  .timeline-container {
-      position: relative;
-      margin-bottom: 2.5rem;;
-
-      .timeline-icon {
-          position: absolute;
-          top: 0.7rem;
-          left: -0.5rem;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          text-align: center;
-          font-size: 1.3rem;
-
-          i {
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-          }
-      }
-
-      .timeline-body {
-          background: var(--skin-color);
-          opacity: 0.9;
-          border-radius: 15px;
-          margin-left: 10%;
-          padding: 20px 30px ;
-          box-shadow: 5px 7px 6px rgba(8, 33, 30, 0.4);
-
-          .timeline-title {
-              font-size: var(--h3-font-size);
-              font-weight: var(--font-bold);
-              color: white;
-          }
-
-          .timeline-subtitle {
-            font-weight: var(--font-medium);
-            font-size: var(--small-font-size);
-          }
-
-          .timeline-year {
-            font-style: italic;
-            opacity: .6;
-            font-weight: var(--font-medium);
-            font-size: var(--smaller-font-size);
-        }
-
-          .timeline-p{
-            margin-top: 3%;
-            font-size: var(--smaller-font-size);
-          }
-        
-      }
-
-      /* Primary Timeline */
-      &.primary {
-          .badge,
-          .timeline-icon {
-              background: var(--skin-color) !important;
-          }
-      }
-
-  }
 }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px; 
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--box-color);
+}
+
+.timeline-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--skin-color);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  padding-left: 10px;
+  padding-top: 8px;
+}
+
+.timeline-body {
+  background: var(--skin-color);
+  opacity: 0.9;
+  border-radius: 15px;
+  margin-left: 70px; 
+  padding: 20px;
+  box-shadow: 5px 7px 6px rgba(8, 33, 30, 0.4);
+}
+
+.timeline-title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-bold);
+  color: white;
+}
+
+.timeline-subtitle {
+font-weight: var(--font-medium);
+font-size: var(--small-font-size);
+}
+
+.timeline-year {
+font-style: italic;
+opacity: .6;
+font-weight: var(--font-medium);
+font-size: var(--smaller-font-size);
+}
+
+.timeline-p{
+margin-top: 3%;
+font-size: var(--smaller-font-size);
+}
+
 
 /* =====================
   Containers
@@ -418,7 +476,7 @@ footer.row {
 }
 
 .modal-dialog.wide {
-  width: 80%;
+  width: 90%;
 }
 
 .modal-dialog.wide .row {

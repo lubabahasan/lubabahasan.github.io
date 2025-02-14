@@ -10,6 +10,8 @@
   <link rel='stylesheet' href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
 
 </head>
 
@@ -19,11 +21,8 @@
 
   <!-- Fixed Navbar -->
   <nav id="main-nav" class="navbar navbar-default ">
-
     <div class="container-fluid">
-
       <div class="navbar-header">
-
         <!-- Hamburger Menu -->
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu"
           aria-expanded="false">
@@ -37,7 +36,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="about.html">About Me</a></li>
           <li><a class="scroll" href="#top">Home</a></li>
-          <li><a class="scroll" href="#experience">Experiences</a></li>
+          <li><a class="scroll" href="#experience">Experience</a></li>
           <li><a class="scroll" href="#projects">Projects</a></li>
           <li><a class="scroll" data-toggle="modal" data-target="#contactModal">Contact</a></li>
         </ul>
@@ -47,7 +46,6 @@
 
   <!-- Home Container -->
   <header id="top" class="jumbotron">
-
     <div class="container text-start">
       <div class="row">
 
@@ -64,8 +62,8 @@
           <p>A CSE undergradute, passionate about coding and innovation, ready to learn something new everyday.</p>
           <p>Nice to meet you. (ツ)</p>
 
-          <button 
-          class="btn button scroll mt-30" data-toggle="modal" data-target="#resumeModal"></a>My Resume <i class="uil uil-arrow-up-right"></i>
+          <button class="btn button scroll mt-30" data-toggle="modal" data-target="#resumeModal"></a>My Resume <i
+              class="uil uil-arrow-up-right"></i>
           </button>
 
           <div class="col-xs-12 home__social">
@@ -212,44 +210,100 @@
     </div><!-- end home container, text-start aligned -->
   </header>
 
-
   <!-- Experience Section -->
   <div class="container" id="experience">
-    
-    <div class="container">
-      <div style="margin-top: 0.7rem;" class="row">
-        <div class="col-xs-12 col-md-6">
-          <h1>Experiences</h1>
-        </div>
+    <!-- Header Section (Full Width) -->
+    <div class="row">
+      <div class="col-12">
+        <h1>Experience</h1>
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <h2>key skills</h2>
-          <p>list of tools in the form of icons here</p>
+    <!-- Two-Column Layout -->
+    <div class="row mt-4">
+      <!-- Left Column: Key Skills -->
+      <div class="col-md-6 skillset">
+        <h2>Key Skills</h2>
+      
+        <!-- Programming Languages -->
+        <h3>Programming Languages</h3>
+        <div class="row g-1 d-flex flex-wrap justify-content-center">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
+            <p>C</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+            <p>C++</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+            <p>Python</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+            <p>Java</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+            <p>HTML</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+            <p>CSS</p>
+          </div>
         </div>
-        
-        <div class="col-xs-12 col-md-6 timeline">
-          <div class="timeline-container primary">
+      
+        <!-- Tools & Frameworks -->
+        <h3>Tools & Frameworks</h3>
+        <div class="row g-1 d-flex flex-wrap justify-content-center">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+            <p>Git</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+            <p>GitHub</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"/>
+            <p>VS Code</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg" />
+            <p>Jupyter</p>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center no-padding">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
+            <p>Bootstrap</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Education -->
+      <div class="col-md-6">
+        <div class="timeline">
+          <h2 style="text-align: center;">Education</h2>
+          <div class="timeline-container primary d-flex">
             <div class="timeline-icon">
               <i class="fa-solid fa-graduation-cap"></i>
             </div>
-
             <div class="timeline-body">
-              <h3 class="timeline-title"><span>University of Asia Pacific</span></h3>
+              <h4 class="timeline-title">
+                <span>University of Asia Pacific</span>
+              </h4>
               <p class="timeline-subtitle">BSc. in Computer Science & Engineering</p>
               <p class="timeline-year">2023 - Present</p>
-              <p class="timeline-p">I'm currently in my 3rd year of pursuing this degree. I focus on competitive programming, AI research, and data science, gaining hands-on experience through projects and algorithmic challenges. Through coursework and personal projects, I continue to explore software development and innovative applications of AI.</p>
+              <p class="timeline-p">
+                I'm currently in my 3rd year of pursuing this degree. I focus on competitive programming, AI research,
+                and data science, gaining hands-on experience through projects and algorithmic challenges.
+              </p>
             </div>
-
-        </div>
-
-      </div> <!-- end row -->
-    </div>
-
-  </div> <!-- end experiences container -->
+          </div>
+        </div> <!-- End Timeline -->
+      </div>
+    </div> <!-- End Two-Column Row -->
+  </div> <!-- End Experience -->
 
   <!-- Project Section -->
 
@@ -260,10 +314,9 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <button
-           type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times; </span> </button>
-          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times; </span> </button>
+
           <h1 class="modal-title text-center" id="resumeTitle">Resume</h1>
 
         </div> <!-- /.modal-header -->

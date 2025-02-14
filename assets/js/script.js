@@ -14,7 +14,7 @@ $(document).ready(function () {
 	// Fixed Nav after scroll
 	function scroll() {
 		if ($(window).scrollTop() >= $offsetY) {
-			$navbar.addClass('menu-fixed').css('background-color', 'rgb(27, 38, 50, 0.87)');
+			$navbar.addClass('menu-fixed').css('background-color', 'rgb(27, 38, 50, 0.9)');
 		} else {
 			$navbar.removeClass('menu-fixed').css('background-color', 'transparent');
 		}
