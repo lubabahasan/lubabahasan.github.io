@@ -101,7 +101,7 @@ $(document).ready(function () {
 
 // Typewriter effect
 
-var TxtType = function(el, toRotate, period) {
+var TxtType = function (el, toRotate, period) {
 	this.toRotate = toRotate;
 	this.el = el;
 	this.loopNum = 0;
@@ -111,17 +111,17 @@ var TxtType = function(el, toRotate, period) {
 	this.isDeleting = false;
 };
 
-TxtType.prototype.tick = function() {
+TxtType.prototype.tick = function () {
 	var i = this.loopNum % this.toRotate.length;
 	var fullTxt = this.toRotate[i];
 
 	if (this.isDeleting) {
-	this.txt = fullTxt.substring(0, this.txt.length - 1);
+		this.txt = fullTxt.substring(0, this.txt.length - 4);
 	} else {
-	this.txt = fullTxt.substring(0, this.txt.length + 1);
+		this.txt = fullTxt.substring(0, this.txt.length + 1);
 	}
 
-	this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+	this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
 	var that = this;
 	var delta = 200 - Math.random() * 100;
@@ -129,26 +129,26 @@ TxtType.prototype.tick = function() {
 	if (this.isDeleting) { delta /= 2; }
 
 	if (!this.isDeleting && this.txt === fullTxt) {
-	delta = this.period;
-	this.isDeleting = true;
+		delta = this.period;
+		this.isDeleting = true;
 	} else if (this.isDeleting && this.txt === '') {
-	this.isDeleting = false;
-	this.loopNum++;
-	delta = 300;
+		this.isDeleting = false;
+		this.loopNum++;
+		delta = 300;
 	}
 
-	setTimeout(function() {
-	that.tick();
+	setTimeout(function () {
+		that.tick();
 	}, delta);
 };
 
-window.onload = function() {
+window.onload = function () {
 	var elements = document.getElementsByClassName('typewrite');
-	for (var i=0; i<elements.length; i++) {
+	for (var i = 0; i < elements.length; i++) {
 		var toRotate = elements[i].getAttribute('data-type');
 		var period = elements[i].getAttribute('data-period');
 		if (toRotate) {
-		  new TxtType(elements[i], JSON.parse(toRotate), period);
+			new TxtType(elements[i], JSON.parse(toRotate), period);
 		}
 	}
 	// INJECT CSS
@@ -158,43 +158,94 @@ window.onload = function() {
 	document.body.appendChild(css);
 };
 
+// Typewriter effect ends
+
 
 // SVG animation
 window.addEventListener('load', () => {
-  const svgContents = document.getElementById('svg-contents');
-  setTimeout(() => {
-    svgContents.classList.add('translated');
-  }, 1000); // Delay of 1 second
+	const svgContents = document.getElementById('svg-contents');
+	setTimeout(() => {
+		svgContents.classList.add('translated');
+	}, 1000); // Delay of 1 second
 });
 
 // Blink animation
 const dom = {
-  eye: document.querySelectorAll(".eye"),
-  eyeRight: document.querySelector(".eye-right"),
-  eyeLeft: document.querySelector(".eye-left"),
-  eyeRight2: document.querySelector(".eye-right-2"),
-  eyeLeft2: document.querySelector(".eye-left-2"),
+	eye: document.querySelectorAll(".eye"),
+	eyeRight: document.querySelector(".eye-right"),
+	eyeLeft: document.querySelector(".eye-left"),
+	eyeRight2: document.querySelector(".eye-right-2"),
+	eyeLeft2: document.querySelector(".eye-left-2"),
 };
 
 
 function blinkAnimation() {
-  setInterval(() => {
-    dom.eyeRight.style.opacity = "0";
-    dom.eyeLeft.style.opacity = "0";
-    dom.eyeRight2.style.opacity = "1";
-    dom.eyeLeft2.style.opacity = "1";
+	setInterval(() => {
+		dom.eyeRight.style.opacity = "0";
+		dom.eyeLeft.style.opacity = "0";
+		dom.eyeRight2.style.opacity = "1";
+		dom.eyeLeft2.style.opacity = "1";
 
-    setTimeout(() => {
-      dom.eyeRight.style.opacity = "1";
-      dom.eyeLeft.style.opacity = "1";
-      dom.eyeRight2.style.opacity = "0";
-      dom.eyeLeft2.style.opacity = "0";
-    }, 150);
-  }, 5000);
+		setTimeout(() => {
+			dom.eyeRight.style.opacity = "1";
+			dom.eyeLeft.style.opacity = "1";
+			dom.eyeRight2.style.opacity = "0";
+			dom.eyeLeft2.style.opacity = "0";
+		}, 150);
+	}, 5000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  blinkAnimation();
+	blinkAnimation();
+});
+
+// Show more/less text
+
+function toggleText(button) {
+	let paragraph = button.previousElementSibling;
+
+	if (paragraph.style.maxHeight === "3em" || paragraph.style.maxHeight === "") {
+		paragraph.style.maxHeight = "none";  // Expand text
+		button.textContent = "Show Less";    // Change button text
+	} else {
+		paragraph.style.maxHeight = "3em";   // Collapse text
+		button.textContent = "Show More";    // Reset button text
+	}
+}
+
+$(document).on('show.bs.modal', '.modal', centerModal);
+$(window).on('resize', function () {
+	$('.modal:visible').each(centerModal);
+});
+
+
+// Carousel
+
+$('#project-contents').carousel({
+	interval: 1000  // auto sliding 1 sec
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var projectSection = document.getElementById('project-contents');
+    var carousel = $('#project-contents'); // Store the carousel reference
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start the carousel when the project section is in view
+                carousel.carousel({
+                    interval: 3000  // auto sliding every 3 sec
+                }).carousel('cycle');  // Start the auto-slide
+            } else {
+                // Stop the carousel when the project section is out of view
+                carousel.carousel('pause');
+            }
+        });
+    }, {
+        threshold: 1.0  // Trigger when the section is fully in view
+    });
+
+    observer.observe(projectSection);
 });
 
 
