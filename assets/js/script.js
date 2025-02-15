@@ -61,7 +61,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		var $link = $(this).attr('href');
 		$('html, body').animate({
-			scrollTop: $($link).offset().top - 60
+			scrollTop: $($link).offset().top - 55
 		}, 900);
 	});
 
@@ -220,34 +220,29 @@ $(window).on('resize', function () {
 
 
 // Carousel
-
-$('#project-contents').carousel({
-	interval: 1000  // auto sliding 1 sec
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    var projectSection = document.getElementById('project-contents');
-    var carousel = $('#project-contents'); // Store the carousel reference
-
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Start the carousel when the project section is in view
-                carousel.carousel({
-                    interval: 3000  // auto sliding every 3 sec
-                }).carousel('cycle');  // Start the auto-slide
-            } else {
-                // Stop the carousel when the project section is out of view
-                carousel.carousel('pause');
-            }
-        });
-    }, {
-        threshold: 1.0  // Trigger when the section is fully in view
+$(document).ready(function () {
+    // Initialize the carousel with default settings
+    var carousel = $('#project-contents').carousel({
+        interval: 1000  // Auto sliding every 1 second
     });
 
-    observer.observe(projectSection);
+    document.addEventListener("DOMContentLoaded", function () {
+        var projectSection = document.getElementById('project-contents');
+        
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Start the carousel when the project section is in view
+                    carousel.carousel('cycle'); // Start auto-slide when in view
+                } else {
+                    // Stop the carousel when the project section is out of view
+                    carousel.carousel('pause');
+                }
+            });
+        }, {
+            threshold: 1.0  // Trigger when the section is fully in view
+        });
+
+        observer.observe(projectSection);
+    });
 });
-
-
-
-

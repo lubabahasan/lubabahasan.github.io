@@ -30,10 +30,28 @@
 }
 
 /* =====================
-  Responsive Media
+  Responsive Media Queries
 ===================== */
 
 @media (max-width: 768px) {
+
+  /*** Jumbotron ***/
+  .jumbotron .logo {
+    max-width: 120px;
+  }
+
+  /*** Mobile Nav ***/
+  .navbar-toggle {
+    height: 36px;
+    margin-bottom: 22px;
+    margin-top: 22px;
+  }
+
+  .navbar-toggle .glyphicon {
+    color: var(--text-color);
+    top: -5px;
+  }
+
   .skillset .row.g-1 {
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +92,6 @@
     color: white;
     text-decoration: underline;
   }
-
 }
 @media (min-width: 768px) {
   .skillset {
@@ -109,6 +126,14 @@
   .timeline-body .show-more:hover {
     color: white;
     text-decoration: underline;
+  }
+
+  
+}
+@media (max-width: 991px) {
+  /*** Resume ***/
+  .year {
+    text-align: left;
   }
 }
 
@@ -413,15 +438,17 @@ hr {
 .timeline {
   position: relative;
   color: var(--text-color);
+  min-height: 100%;
 }
 .timeline::before {
   content: '';
   position: absolute;
   left: 20px; 
   top: 0;
-  bottom: 0;
+  bottom: -100px;
   width: 4px;
   background: var(--box-color);
+  height: 1000px;
 }
 .timeline-container {
   position: relative;
@@ -468,7 +495,6 @@ font-size: var(--smaller-font-size);
 /* =====================
   Projects Styles
 ===================== */
-
 #projects {
   background: radial-gradient(circle, var(--name-color), var(--title-color));
   background-size: cover;
@@ -511,7 +537,6 @@ font-size: var(--smaller-font-size);
 #projects .carousel-control.right {
   right: 0;
 }
-
 #projects .carousel-control:hover {
   color: var(--body-color);
   -webkit-transform: scale(1.1);
@@ -520,8 +545,18 @@ font-size: var(--smaller-font-size);
 }
 
 #projects .carousel-inner {
-  overflow: hidden;
   display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+}
+
+#projects .carousel-inner .row{
+  display: flex;
+  width: 100%;
 }
 
 #projects .carousel-inner img {
@@ -530,33 +565,65 @@ font-size: var(--smaller-font-size);
   max-width: 100%; 
   object-fit: contain; 
   display: block; 
-  margin: 0 auto;
+}
+
+#projects .carousel-inner > div {
+  flex: 0 0 100%;
+  overflow: hidden;
 }
 
 #projects .carousel-caption {
+  left: 10px;
   position: relative; 
   text-align: left; 
   text-shadow: none;
   background: rgba(255, 255, 255, 0.7); 
   border-radius: 7%; 
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
-  color: #333; 
-  max-width: 100%; 
+  color: #333;
+  overflow: hidden;
+  width: 100%;
+  max-width: 90%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  min-height: 250px;
+  max-height: 250px;
 }
 
 .card {
   background-color: rgba(41, 79, 86, 0.9);
   box-shadow: 5px 7px 6px rgba(8, 33, 30, 0.4);
-  padding: 30px;
+  padding: 20px;
   border-radius: 8%;
 }
 
+.card h2 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: var(--body-color);
+  margin-bottom: 0.1rem;
+  margin-top: 0.5rem;
+}
+
 .card h3 {
-  margin-top: 0;
+  font-size: clamp(0.8rem, 2vw, 1.3rem);
+  color: rgba(8, 33, 30, 0.5);
+  margin-bottom: 0.5rem;
+  margin-top: 0.1rem;
 }
 
 .card h4 {
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  margin-bottom: 1.8rem;
+}
+
+.card .button {
+  background-color: var(--title-color);
+  border-color: var(--title-color);
+  padding: 6px;
+}
+.card .button:hover {
+  background-color: rgba(41, 79, 86, 0.9);
+  color: var(--name-color);
 }
 
 #portfolio .carousel-indicators {
@@ -592,11 +659,49 @@ font-size: var(--smaller-font-size);
 }
 
 /* =====================
+  Footer Styles
+===================== */
+#contact {
+  background: linear-gradient( to bottom , var(--box-color), var(--box-color), var(--box-color), var(--body-color));
+  width: 100%;
+  padding-top: 3%;
+}
+
+#contact .container,
+#contact .row {
+  padding-left: 10;
+  padding-right: 10;
+}
+
+#contact h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-bold);
+  padding-bottom: 40px;
+}
+
+#contact .heart{
+  color: var(--box-color)
+}
+
+#contact .i{
+  color: var(--title-color);
+}
+
+footer{
+  background: rgb(83, 198, 196, 0.8);
+}
+
+footer h3{
+  color: rgb(27, 38, 50, 0.9);
+}
+
+/* =====================
   Containers
 ===================== */
 section.row,
 footer.row {
-  padding: 30px 30px 60px;
+  padding-top: 30px;
+  padding-bottom: 40px;
 }
 
 /* =====================
@@ -714,16 +819,6 @@ textarea
   border: 2px solid var(--title-color);
 }
 
-.td-btn+.td-btn {
-  margin-left: 6px;
-}
-
-.td-btn.small {
-  font-family: var(--body-font);
-  font-size: 0.7rem;
-  padding: 9px 15px 8px;
-}
-
 .outline {
   background-color: transparent;
   border: 1px solid var(--skin-color);
@@ -737,21 +832,6 @@ textarea
   max-height: 90px;
 }
 
-.icon+p {
-  margin-top: 15px;
-}
-
-/* Profile Pic */
-.profile {
-  max-width: 180px;
-  padding: 0 15px 0 0;
-}
-
-/* Glyphicons */
-.glyphicon-heart {
-  color: #e9da64;
-}
-
 /* =====================
   Resume Modal
 ===================== */
@@ -762,24 +842,6 @@ textarea
 .year {
   text-align: right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =====================
   Other Styles
@@ -808,152 +870,10 @@ textarea
   box-shadow: 0 1px 3px rgba(8, 33, 30, 0.5);
 }
 
-.bg-white {
-  background-color: #fffefd;
-  position: relative;
-}
-
-.bg-pink {
-  background-color: #df3778;
-  color: #fffefd;
-  position: relative;
-}
-
-.bg-star-y {
-  background: var(--body-color);
-  background-size: 60px;
-  color: #fffefd;
-}
-
-.bg-star-g {
-  background: #29a598 url(https://github.com/tiffanyadu/portfolio/blob/master/assets/imgs/green-star.png?raw=true) fixed;
-  background-size: 60px;
-  color: #fffefd;
-}
-
-.bg-honeycomb {
-  background: #fffefd url(https://github.com/tiffanyadu/portfolio/blob/master/assets/imgs/honeycomb.png?raw=true) fixed;
-  background-size: 24px;
-}
-
-.gray {
-  color: #9da6a4;
+.bg-custom {
+  background-color: rgba(214, 218, 230, 0.5);
 }
 
 .dashed {
-  border-top: 2px dashed #ffce3f;
+  border-top: 2px dashed var(--box-color);
 }
-
-/* =====================
-  Media Queries
-===================== */
-@media (max-width: 1199px) {
-
-  /* Center class for medium screens */
-  .md-center {
-    text-align: center;
-  }
-}
-
-@media (max-width: 991px) {
-
-  /*** Resume ***/
-  .year {
-    text-align: left;
-  }
-
-  /*** Portfolio ***/
-  #projects .carousel-control {
-    margin-top: 300%;
-  }
-
-  #projects .carousel-inner img {
-    max-width: 480px;
-    width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-
-  /*** Page Elements ***/
-  section .row [class^="col-sm-"]+[class^="col-sm-"],
-  section .row [class*=" col-sm-"]+[class*=" col-sm-"] {
-    margin-top: 30px;
-  }
-
-  /*** Jumbotron ***/
-  .jumbotron .logo {
-    max-width: 120px;
-  }
-
-  /*** Mobile Nav ***/
-  .navbar-toggle {
-    height: 36px;
-    margin-bottom: 22px;
-    margin-top: 22px;
-  }
-
-  .navbar-toggle .glyphicon {
-    color: var(--text-color);
-    top: -5px;
-  }
-
-  .navbar-default .navbar-toggle:focus,
-  .navbar-default .navbar-toggle:hover {
-    background-color: transparent;
-    border-color: #29a598;
-  }
-
-  .navbar-default .navbar-toggle .active {
-    color: #29a598;
-  }
-
-  .navbar-collapse {
-    background-color: var(--body-color);
-    border: none;
-    box-shadow: 0 2px 8px rgba(8, 33, 30, 0.2);
-    left: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-  }
-
-  .navbar-collapse .outline.pink {
-    margin: 15px auto 30px;
-    max-width: 150px;
-  }
-
-  /*** Portfolio ***/
-  #projects .carousel-control {
-    margin-top: 300%;
-  }
-
-  #projects .card {
-    text-align: center;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =====================
-  Bootstrap 
-===================== */
