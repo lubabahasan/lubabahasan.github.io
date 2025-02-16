@@ -39,8 +39,8 @@
       <!-- Collapsible Menu -->
       <div id="menu" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="about.html">About Me</a></li>
           <li><a class="scroll" href="#top">Home</a></li>
+          <li><a class="scroll" href="#about">About Me</a></li>
           <li><a class="scroll" href="#experience">Experience</a></li>
           <li><a class="scroll" href="#projects">Projects</a></li>
           <li><a class="scroll" href="#contact">Contact</a></li>
@@ -215,6 +215,26 @@
     </div><!-- end home container, text-start aligned -->
   </header>
 
+  <!-- About Me Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-5 hidden-xs hidden-sm hidden-m text-center">
+          <img class="img-fluid" src="assets/img/programming-computer-frog.gif"></img>
+        </div> <!-- col2, avatar -->
+
+        <div class="col-sm-7 col-12 ">
+          <p class="about-title">Hi! <span class="about-title">Lubaba</span> here. シ</p> <p>I'm a third-year Computer Science & Engineering student with a deep passion for <span>problem-solving, programming, and mathematics</span>. I enjoy working on projects related to <span>machine learning, deep learning, and data analysis.</span></p>
+          <p>Apart from programming, I love <span>art and design</span>, and enjoy exploring creative projects in <span>animation and visual design.</span></p>
+          <p>Check out <a class=scroll href="#projects"><i class="fa-solid fa-wand-magic-sparkles"></i> my work <i class="fa-solid fa-hat-wizard"></i></a> below, and feel free to reach out if you'd like to collaborate or chat!</p>
+
+        </div> <!-- col1, text -->
+
+      </div><!-- row1 -->
+    </div><!-- end home container, text-start aligned -->
+  </section>
+
   <!-- Experience Section -->
   <div class="container" id="experience">
     <!-- Header Section (Full Width) -->
@@ -328,21 +348,10 @@
             </div>
             <div class="timeline-body">
               <h4 class="timeline-title">
-                <span>The Legends</span>
-              </h4>
-              <p class="timeline-subtitle">A-levels</p>
-              <p class="timeline-year">2020 - 2022</p>
-            </div>
-
-            <div class="timeline-icon">
-              <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <div class="timeline-body">
-              <h4 class="timeline-title">
                 <span>Bangladesh International School English Section</span>
               </h4>
-              <p class="timeline-subtitle">O-levels</p>
-              <p class="timeline-year">2015 - 2019</p>
+              <p class="timeline-subtitle">O-levels/A-levels</p>
+              <p class="timeline-year">2015 - 2022</p>
             </div>
 
           </div>
@@ -462,16 +471,58 @@
     <hr class="dashed">
 
     <footer class="row">
-      <div class="col-xs-12 text-center">
+      <div class="col-xs-12 text-center footer-content">
         <h3>&ndash; Thanks for visiting! &ndash;</h3>
-        <small class="gray">Copyright &copy;
-          <script type="text/javascript">document.write(new Date().getFullYear());</script> Lubaba Hasan &mdash; All
-          Rights Reserved &mdash; Made with <i class="fa-solid fa-heart heart"></i>
+        <h2>Check out my friend's portfolio:</h2>
+        <ul id="portfolio-list"></ul>
+        <small class="gray">
+          Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script>
+          Lubaba Hasan &mdash; All Rights Reserved &mdash; Made with <i class="fa-solid fa-heart heart"></i>
         </small>
       </div>
     </footer>
+
+    <script>
+      // Portfolio links
+      document.addEventListener("DOMContentLoaded", function () {
+        // List of portfolio links
+        const portfolios = [
+          { name: "Nayeem", url: "https://nayeem131136.github.io/portfolio/" },
+          { name: "Afsana", url: "https://22201112.github.io/Portfolio/" },
+          { name: "Tandra", url: "https://tandra136131.github.io/portfolio/" },
+          { name: "Araf", url: "https://mohd-araf.github.io/Araf_Portfolio/" }
+        ];
+
+        function getRandomPortfolios() {
+          let shuffled = [...portfolios].sort(() => Math.random() - 0.5); // Copy & shuffle array
+          return shuffled.slice(0, 3); // Pick first 3
+        }
+
+        function displayPortfolios() {
+          const list = document.getElementById("portfolio-list");
+          if (!list) return; // Safety check
+
+          list.innerHTML = ""; // Clear previous content
+          const selected = getRandomPortfolios();
+
+          selected.forEach(portfolio => {
+            let listItem = document.createElement("li");
+            let link = document.createElement("a");
+            link.href = portfolio.url;
+            link.textContent = portfolio.name;
+            link.target = "_blank";
+            listItem.appendChild(link);
+            list.appendChild(listItem);
+          });
+        }
+
+        displayPortfolios(); // Call function when page loads
+      });
+    </script>
+
   </section>
-  
+
 
   <!-- ---------------------  M  O  D  A  L  S ------------------- -->
 
@@ -531,6 +582,13 @@
           </div>
           -->
 
+          <div class="row">
+            <div class="col-xs-12 bg-custom">
+              <img class="img-responsive center-block hero" src="assets/img/Resume-img.png">
+            </div>
+          </div>
+
+          <!--
           <div class="education and skills">
             <div class="row">
 
@@ -568,19 +626,20 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </div>-->
 
-            <div class="row text-center">
-              <a class="button" href="" target="_blank" download><span><i class="fa-solid fa-download"></i></span>
-                Download PDF</a>
-              <a class="button" href="https://www.linkedin.com/in/lubaba-hasan/" target="_blank"><span><i
-                    class="fa-solid fa-user"></i></span> View LinkedIn Profile</a>
-            </div>
+          <div class="row text-center button-row">
+            <a class="button" href="assets/img/Resume.pdf" target="_blank" download><span><i
+                  class="fa-solid fa-download"></i></span>
+              Download PDF</a>
+            <a class="button" href="https://www.linkedin.com/in/lubaba-hasan/" target="_blank"><span><i
+                  class="fa-solid fa-user"></i></span> View LinkedIn Profile</a>
           </div>
-        </div><!-- /.modal-body -->
+        </div>
+      </div><!-- /.modal-body -->
 
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
   <!-- Contact Modal -->
